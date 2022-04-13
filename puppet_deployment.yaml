@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: puppetserver00
+spec:
+  selector:
+    matchLabels:
+      app: puppetserver00
+  template:
+    metadata:
+      labels:
+        app: puppetserver00
+    spec:
+      containers:
+      - name: puppetserver
+        image: puppet/puppetserver
+        # resources:
+        #   limits:
+        #     memory: "128Mi"
+        #     cpu: "500m"
+        ports:
+        - containerPort: 8140
